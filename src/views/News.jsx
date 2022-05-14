@@ -24,6 +24,7 @@ const News = () => {
       setAuthorError(true);
     } else if (content === "") {
       setContentError(true);
+      setAuthorError(false);
     } else {
       const newArticle = {
         id: newsData.length + 1,
@@ -34,6 +35,7 @@ const News = () => {
       dispatch(addArticle(newArticle));
       setAuthor("");
       setContent("");
+      setContentError(false);
     }
   };
 
