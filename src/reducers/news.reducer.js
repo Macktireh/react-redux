@@ -12,8 +12,8 @@ export default function newsReducer(state = initialState, action) {
     case GET_ARTICLE:
       return action.payload;
 
-    case ADD_ARTICLE:
-      return [...state, action.payload];
+    // case ADD_ARTICLE:
+    //   return [...state, action.payload];
 
     case EDIT_ARTICLE:
       const copyState = state.slice();

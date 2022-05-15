@@ -6,7 +6,6 @@ const DeleteArticle = ({ id }) => {
   const dispatch = useDispatch();
 
   const handleDelete = () => {
-    console.log(id);
     dispatch(deleteArticle(id));
   };
 

@@ -18,7 +18,7 @@ export const addArticle = (data) => {
   return (dispatch) => {
     return axios
       .post("http://localhost:3001/articles", data)
-      .then(dispatch({ type: ADD_ARTICLE, payload: data }))
+      .then((res) => dispatch({ type: ADD_ARTICLE, payload: data }))
       .catch((err) => console.log(err));
   };
 };

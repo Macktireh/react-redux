@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
-import { addArticle } from "../actions/news.actions";
+import { addArticle, getArticle } from "../actions/news.actions";
 
 import Article from "../components/Article";
 import Logo from "../components/Logo";
@@ -26,15 +26,17 @@ const News = () => {
       setAuthorError(false);
     } else {
       const newArticle = {
-        id: newsData.length + 1,
         author,
         content,
         date: Date.now(),
       };
-      dispatch(addArticle(newArticle));
-      setAuthor("");
-      setContent("");
-      setContentError(false);
+      dispatch(addArticle(newArticle))
+        .then(() => dispatch(getArticle()))
+        .then(() => {
+          setAuthor("");
+          setContent("");
+          setContentError(false);
+        });
     }
   };
 
